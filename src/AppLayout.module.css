@@ -1,0 +1,17 @@
+.main {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 24px;
+}
+
+.sidebar {
+    flex: 0 0 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.content {
+    flex: 1;
+}

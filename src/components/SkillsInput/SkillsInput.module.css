@@ -1,0 +1,44 @@
+.wrapper {
+  background-color: white;
+  padding: 16px;
+  border-radius: 12px;
+  max-width: 317px;
+  width: 100%;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.inputRow {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.input {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ced4da;
+  font-size: 14px;
+}
+
+.addButton {
+  background-color: #228be6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}

@@ -1,0 +1,96 @@
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 24px;
+    margin-bottom: 16px;
+    width: 659px;
+}
+.tags {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+}
+
+.tag_remote {
+    background-color: #4263eb;
+    color: white;
+    font-size: 9px;
+    font-weight: 700;
+    padding: 2px 4px;
+    border-radius: 6px;
+    width: 105px;
+    height: 16px;
+}
+
+.tag_hybrid {
+    background-color: black;
+    color: white;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
+.tag_office {
+    background-color: #f1f3f5;
+    color: #495057;
+    font-size: 9px;
+    font-weight: 700;
+    padding: 2px 5px;
+    border-radius: 6px;
+    width: 41px;
+    height: 16px;
+}
+
+.title {
+    color: #3b5bdb;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.sub {
+    display: flex;
+    gap: 16px;
+    color: #868e96;
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+.salary {
+    font-weight: 500;
+    color: black;
+}
+
+.exp {
+    font-weight: 400;
+}
+
+.company {
+    color: #868e96;
+    font-size: 15px;
+    margin-bottom: 6px;
+}
+
+.remoteTag {
+    display: inline-block;
+    background-color: #4263eb;
+    color: white;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+    margin-bottom: 6px;
+}
+
+.city {
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.actions {
+    display: flex;
+    gap: 16px;
+}

@@ -1,0 +1,49 @@
+.header {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  background-color: white;
+  justify-content: space-between;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.logo {
+  margin-right: 10px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.headerRight {
+  display: flex;
+  gap: 24px;
+  width: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+.blueDot {
+  width: 6px;
+  height: 6px;
+  background-color: #4263EB;
+  border-radius: 50%;
+  margin-left: 6px;
+}
+
+.userIcon {
+  margin-right: 6px;
+}
