@@ -17,8 +17,8 @@ const initialState = {
   page: 0,
   text: '',
   area: '',
+  totalPages: 0,
 };
-
 const vacanciesSlice = createSlice({
   name: 'vacancies',
   initialState,
@@ -51,6 +51,7 @@ const vacanciesSlice = createSlice({
       .addCase(loadVacancies.fulfilled, (state, action) => {
         state.loading = false;
         state.vacancies = action.payload.items;
+        state.totalPages = action.payload.pages;
       })
       .addCase(loadVacancies.rejected, (state, action) => {
         state.loading = false;

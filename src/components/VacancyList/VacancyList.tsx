@@ -10,14 +10,13 @@ import styles from './VacancyList.module.css';
 
 export const VacancyList = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { vacancies, loading, error, page, skills, area, text } = useSelector(
+  const { vacancies, loading, error, page, skills, area, text, totalPages } = useSelector(
     (state: RootState) => state.vacancies
   );
 
   useEffect(() => {
     dispatch(loadVacancies());
   }, [dispatch, page, skills, area, text]);
-
   if (loading) {
     return (
       <div className={styles.list}>
@@ -28,8 +27,6 @@ export const VacancyList = () => {
     );
   }
   if (error) return <p style={{ color: 'red' }}>{error}</p>;
-
-  const totalPages = 10;
 
   return (
     <div className={styles.list}>
