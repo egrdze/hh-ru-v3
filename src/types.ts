@@ -19,4 +19,9 @@ export type Vacancy = {
     name: string;
   };
   alternate_url: string;
+  snippet?: {
+    requirement?: string;
+    responsibility?: string;
+  };
+  url?: string;
 };

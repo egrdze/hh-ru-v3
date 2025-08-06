@@ -1,6 +1,29 @@
 import { createAsyncThunk, createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import { fetchVacancies } from '../api/fetchVacancies';
 import type { RootState } from './store';
+import type { Vacancy } from '../types.ts';
+
+interface VacanciesState {
+  skills: string[];
+  vacancies: Vacancy[];
+  loading: boolean;
+  error: string | null;
+  page: number;
+  text: string;
+  area: string;
+  totalPages: number;
+}
+
+const initialState: VacanciesState = {
+  skills: ['TypeScript', 'React', 'Redux'],
+  vacancies: [],
+  loading: false,
+  error: null,
+  page: 0,
+  text: '',
+  area: '',
+  totalPages: 0,
+};
 
 export const loadVacancies = createAsyncThunk('vacancies/load', async (_, { getState }) => {
   const state = getState() as RootState;
@@ -9,16 +32,6 @@ export const loadVacancies = createAsyncThunk('vacancies/load', async (_, { getS
   return await fetchVacancies({ page, text: query, area });
 });
 
-const initialState = {
-  skills: ['TypeScript', 'React', 'Redux'],
-  vacancies: [],
-  loading: false,
-  error: null as string | null,
-  page: 0,
-  text: '',
-  area: '',
-  totalPages: 0,
-};
 const vacanciesSlice = createSlice({
   name: 'vacancies',
   initialState,

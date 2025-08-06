@@ -1,6 +1,8 @@
 import { Button } from '@mantine/core';
 import type { Vacancy } from '../../types.ts';
 import styles from './VacancyCard.module.css';
+import { Link } from 'react-router-dom';
+
 
 type TagType = 'remote' | 'hybrid' | 'office';
 
@@ -24,7 +26,7 @@ type Props = {
 };
 
 export const VacancyCard = ({ vacancy }: Props) => {
-  const { name, employer, salary, experience, area, schedule, alternate_url } = vacancy;
+  const { name, employer, salary, experience, area, schedule } = vacancy;
 
   const salaryText = salary
     ? `${salary.from?.toLocaleString?.() || ''} – ${salary.to?.toLocaleString?.() || ''} ₽`
@@ -77,21 +79,22 @@ export const VacancyCard = ({ vacancy }: Props) => {
       </div>
 
       <div className={styles.actions}>
-        <Button color="dark" radius="md" data-testid="view-btn">
-          Смотреть вакансию
-        </Button>
-        <Button
-          variant="default"
-          radius="md"
-          component="a"
-          href={alternate_url}
-          target="_blank"
-          rel="noopener noreferrer"
-          data-testid="apply-btn"
-        >
-          Откликнуться
-        </Button>
-      </div>
+        <a href={vacancy.alternate_url} target="_blank" rel="noopener noreferrer">
+          <Button color="dark" radius="md" data-testid="view-btn">
+            Смотреть вакансию
+          </Button>
+        </a>
+        <Link to={`/vacancies/${vacancy.id}`}>
+          <Button
+            variant="default"
+            radius="md"
+            data-testid="apply-btn"
+          >
+            Откликнуться
+          </Button>
+        </Link>
     </div>
-  );
+</div>
+)
+  ;
 };

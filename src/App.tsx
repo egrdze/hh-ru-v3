@@ -1,9 +1,10 @@
 import './App.css';
 import '@mantine/core/styles.css';
 import './components/Header/Header.module.css';
-
+import { VacancyPage } from './components/VacancyPage/VacancyPage.tsx';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { MantineProvider } from '@mantine/core';
 import { CitySelect } from './components/CitySelect/CitySelect.tsx';
 import Header from './components/Header/Header.tsx';
@@ -22,18 +23,27 @@ function App() {
 
   return (
     <MantineProvider>
-      <Header />
-      <TitleSearch />
-
-      <div className="contentContainer">
-        <div className="filters">
-          <SkillsInput />
-          <CitySelect />
-        </div>
-        <div className="vacancies">
-          <VacancyList />
-        </div>
-      </div>
+      <BrowserRouter>
+        <Header />
+        <TitleSearch />
+        <Routes>
+          <Route path="/vacancies/:id" element={<VacancyPage />} />
+          <Route
+            path="/"
+            element={
+              <div className="contentContainer">
+                <div className="filters">
+                  <SkillsInput />
+                  <CitySelect />
+                </div>
+                <div className="vacancies">
+                  <VacancyList />
+                </div>
+              </div>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
     </MantineProvider>
   );
 }

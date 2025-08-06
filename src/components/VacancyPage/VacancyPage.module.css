@@ -1,0 +1,57 @@
+.container {
+    max-width: 659px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+.descriptionBlock {
+    width: 108%;
+    margin: 0 auto;
+    padding: 24px;
+    background-color: #FFFF;
+    border-radius: 8px;
+}
+
+.vacancyLink {
+    color: #0073e6;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.vacancyLink:hover {
+    text-decoration: underline;
+}
+.section {
+    margin-top: 24px;
+}
+
+.section h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.section p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #343a40;
+}
+
+.actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 24px;
+}
+.descriptionBlock {
+    margin-top: 32px;
+}
+
+.descriptionTitle {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.descriptionContent {
+    font-size: 16px;
+    line-height: 1.6;
+}
