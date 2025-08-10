@@ -84,7 +84,7 @@ export const VacancyCard = ({ vacancy }: Props) => {
             Смотреть вакансию
           </Button>
         </a>
-        <Link to={`/vacancies/${vacancy.id}`}>
+        <Link to={`/vacancies/detail/${vacancy.id}`}>
           <Button
             variant="default"
             radius="md"

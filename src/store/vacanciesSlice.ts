@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import { fetchVacancies } from '../api/fetchVacancies';
-import type { RootState } from './store';
 import type { Vacancy } from '../types.ts';
 
 interface VacanciesState {
@@ -25,12 +24,27 @@ const initialState: VacanciesState = {
   totalPages: 0,
 };
 
-export const loadVacancies = createAsyncThunk('vacancies/load', async (_, { getState }) => {
-  const state = getState() as RootState;
-  const { skills, page, text, area } = state.vacancies;
-  const query = text.trim() !== '' ? text : skills.join(' ');
-  return await fetchVacancies({ page, text: query, area });
-});
+const cityToAreaMap: Record<string, string> = {
+  moscow: '1',
+  petersburg: '2',
+};
+
+export const loadVacancies = createAsyncThunk(
+  'vacancies/load',
+  async (
+    { city, text, skills, page }: { city: string; text: string; skills: string[]; page: number },
+    { rejectWithValue }
+  ) => {
+    try {
+      const area = cityToAreaMap[city] || '';
+      const query = text.trim() !== '' ? text : skills.join(' ');
+      return await fetchVacancies({ page, text: query, area, skills });
+    } catch  {
+      return rejectWithValue('Ошибка загрузки');
+    }
+  }
+);
+
 
 const vacanciesSlice = createSlice({
   name: 'vacancies',
@@ -51,9 +65,6 @@ const vacanciesSlice = createSlice({
     setText(state, action: PayloadAction<string>) {
       state.text = action.payload;
     },
-    setArea(state, action: PayloadAction<string>) {
-      state.area = action.payload;
-    },
   },
   extraReducers: (builder) => {
     builder
@@ -73,5 +84,5 @@ const vacanciesSlice = createSlice({
   },
 });
 
-export const { addSkill, removeSkill, setPage, setText, setArea } = vacanciesSlice.actions;
+export const { addSkill, removeSkill, setPage, setText } = vacanciesSlice.actions;
 export default vacanciesSlice.reducer;
